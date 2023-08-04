@@ -39,7 +39,7 @@ app.use((req, res, next) => {
 //connect to database mongoDB
 mongoose
   .connect(
-    `mongodb+srv://tiffanieorsoni:${process.env.DB_PASSWORD}@cluster0.r42tbpu.mongodb.net/?retryWrites=true&w=majority`,
+    `mongodb+srv://Park:cathy971@cluster0.hfknssn.mongodb.net/?retryWrites=true&w=majority`,
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,
