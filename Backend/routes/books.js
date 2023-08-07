@@ -1,9 +1,9 @@
 const express = require("express");
 const router = express.Router();
-const multer = require("../middleware/multer-config");
+const multer = require("../middlewares/multer-config");
 
-const auth = require("../middleware/auth");
-const booksCtrl = require("../controllers/books");
+const auth = require("../middlewares/auth");
+const booksCtrl = require("../controllers/book");
 
 router.get("/", booksCtrl.getAllBooks);
 router.get("/bestrating", booksCtrl.getBestRatings);

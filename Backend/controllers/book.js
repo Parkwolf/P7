@@ -102,11 +102,11 @@ exports.modifyBook = (req, res, next) => {
     .catch((error) => res.status(400).json({ error }));
 };
 
-//#### delete a book ####
+//supression livre
 exports.deleteBook = (req, res, next) => {
   Book.findOne({ _id: req.params.id })
     .then((book) => {
-      //check if user is the owner of the book
+      //vérification propriétaire du livre
       if (book.userId != req.auth.userId) {
         res.status(403).json({ message: "403: unauthorized request" });
       } else {
@@ -126,14 +126,14 @@ exports.deleteBook = (req, res, next) => {
     .catch((error) => res.status(500).json({ error }));
 };
 
-//#### get all books ####
+//récuperé tout les livres
 exports.getAllBooks = (req, res, next) => {
   Book.find()
     .then((books) => res.status(200).json(books))
     .catch((error) => res.status(400).json({ error }));
 };
 
-//#### get best 3 best rated books ####
+//récupérer les 3 meilleurs livres
 exports.getBestRatings = (req, res, next) => {
   Book.find()
     //sort by descending order
