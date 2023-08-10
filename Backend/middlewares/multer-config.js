@@ -3,7 +3,7 @@ const sharp = require("sharp");
 path = require("path");
 fs = require("fs");
 
-//sets the storage up
+//Configuration stockage
 const storage = multer.diskStorage({
   destination: (req, file, callback) => {
     callback(null, "images");

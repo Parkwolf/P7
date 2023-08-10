@@ -12,16 +12,18 @@ const bookSchema = mongoose.Schema(
     ratings: [{ userId: String, grade: Number }],
     averageRating: {
       type: Number,
-      //getter to round the average rating (1 decimal)
+      //mise en place du calcul de la note moyenne
       get: function (v) {
-        return Math.round(v * 10) / 10;
+        // valeur actuelle du average rating
+        return Math.round(v * 10) / 10; //multuplier la note par 10
       },
       required: true,
     },
+    // arrondie à une décimale pour une meilleure lisibilité
   },
   { toJSON: { getters: true } }
 );
 
-bookSchema.plugin(uniqueValidator);
+bookSchema.plugin(uniqueValidator); // vérifie unique true
 
 module.exports = mongoose.model("Book", bookSchema);
